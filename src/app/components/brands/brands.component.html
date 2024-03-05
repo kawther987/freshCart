@@ -12,13 +12,17 @@
           (click)="displaySpceficBrand(brand._id)"
         >
           <img [src]="brand.image" class="w-100" [alt]="brand.name" />
-          <h3 class="h6 my-3">{{ brand.name }}</h3>
+          <h3 class="h5 text-main fw-bold my-3">{{ brand.name }}</h3>
         </div>
       </div>
       <div *ngIf="specificBrand">
         <div class="text-center bg-main-light p-4 shadow w-50 mx-auto">
           <h3 class="text-main">{{ specificBrand.name }}</h3>
-          <img [src]="specificBrand.image" [alt]="specificBrand.name" />
+          <img
+            class="w-100"
+            [src]="specificBrand.image"
+            [alt]="specificBrand.name"
+          />
         </div>
       </div>
     </div>

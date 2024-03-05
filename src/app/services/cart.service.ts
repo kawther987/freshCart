@@ -49,6 +49,11 @@ export class CartService {
       }
     );
   }
+  cashPay(cartId: string | null, userData: Checkout): Observable<any> {
+    return this._HttpClient.post(`${this.apiUrl}/api/v1/orders/${cartId}`, {
+      shippingAddress: userData,
+    });
+  }
 
   getAllOrder(userId: string): Observable<any> {
     return this._HttpClient.get(`${this.apiUrl}/api/v1/orders/user/${userId}`);

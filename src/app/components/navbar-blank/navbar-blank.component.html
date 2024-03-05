@@ -21,14 +21,14 @@
             >Home</a
           >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             class="nav-link"
             routerLinkActive="active-link"
             routerLink="/allorders"
             >Cart</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
             class="nav-link"
@@ -73,14 +73,20 @@
           </span>
         </li>
         <li
-          class="nav-item position-relative mx-4"
+          class="nav-item position-relative mx-md-3"
           role="button"
-          title="Your Cart"
+          title="Wish List"
         >
           <i routerLink="/wishList" class="fa fs-4 fa-heart text-danger"></i>
           <span class="cartNum badge bg-danger position-absolute">
             {{ numFav }}
           </span>
+        </li>
+        <li class="nav-item me-md-3" role="button" title="Forget Password">
+          <i
+            routerLink="/forgetPassword"
+            class="fa fs-4 fa-user-shield text-main"
+          ></i>
         </li>
         <li class="nav-item" role="button">
           <span (click)="signOut()">SignOut</span>

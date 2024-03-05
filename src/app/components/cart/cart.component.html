@@ -68,9 +68,20 @@
       <i class="far fa-trash-can"></i>
       Remove All
     </button>
-    <button [routerLink]="['/checkout', cartDetails.data._id]" class="btn-main">
-      Online Payment
-    </button>
+    <div>
+      <button
+        [routerLink]="['/cashPay', cartDetails.data._id]"
+        class="btn-main"
+      >
+        Cash Payment
+      </button>
+      <button
+        [routerLink]="['/checkout', cartDetails.data._id]"
+        class="btn-main"
+      >
+        Online Payment
+      </button>
+    </div>
   </div>
 </section>
 <ng-template #cartEmpty>

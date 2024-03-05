@@ -34,6 +34,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { ForgetPassComponent } from './components/forget-pass/forget-pass.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import { CashPayComponent } from './components/cash-pay/cash-pay.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
     AllordersComponent,
     ForgetPassComponent,
     WishListComponent,
+    CashPayComponent,
   ],
   imports: [
     BrowserModule,
