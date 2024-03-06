@@ -15,11 +15,11 @@ export class CartComponent implements OnInit {
   ) {}
 
   cartDetails: Cart = {} as Cart;
+  numCart: number = 0;
   displayCart() {
     this._CartService.getUserCart().subscribe({
       next: (response) => {
         this.cartDetails = response;
-        console.log(response);
       },
       error: (err) => {
         console.log(err);
@@ -31,6 +31,7 @@ export class CartComponent implements OnInit {
     this._CartService.removeProduct(id).subscribe({
       next: (response) => {
         this.cartDetails = response;
+        this._CartService.cartNum.next(response.numOfCartItems);
       },
       error: (err) => {
         console.log(err);
@@ -60,6 +61,7 @@ export class CartComponent implements OnInit {
           'All products are removed',
           response.message
         );
+        this._CartService.cartNum.next((response = 0));
         this.cartDetails = response;
       },
     });

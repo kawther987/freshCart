@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { WishListService } from 'src/app/services/wish-list.service';
@@ -26,5 +26,11 @@ export class NavbarBlankComponent {
 
   signOut(): void {
     this._AuthService.signOut();
+  }
+  scrolled: boolean = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.scrolled = window.scrollY > 0;
   }
 }
