@@ -58,7 +58,6 @@ export class WishListComponent implements OnInit {
         this._ToastrService.error(response.message, response.status);
         this.wishListData = response.data;
         this._WishListService.favNum.next(response.data.length);
-
         const newProductData = this.products.filter((item) =>
           this.wishListData.includes(item._id)
         );

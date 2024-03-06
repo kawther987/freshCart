@@ -47,7 +47,7 @@ export class CashPayComponent {
     this._CartService.cashPay(this.cartId, this.checkOut.value).subscribe({
       next: (response) => {
         this._ToastrService.success(response.status);
-        this._Router.navigate(['/home']);
+        this._Router.navigate(['/allorders']);
         this._CartService.cartNum.next((response = 0));
       },
     });
