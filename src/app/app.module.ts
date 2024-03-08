@@ -35,6 +35,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { ForgetPassComponent } from './components/forget-pass/forget-pass.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { CashPayComponent } from './components/cash-pay/cash-pay.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { CashPayComponent } from './components/cash-pay/cash-pay.component';
     FormsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MyhttpInterceptor, multi: true },

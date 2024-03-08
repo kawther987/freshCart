@@ -23,11 +23,17 @@ export class HomeProductsComponent implements OnInit, OnDestroy {
   products!: Product[];
   wishListData: string[] = [];
   searchTerm: string = '';
+  pageSize: number = 0;
+  totalItems: number = 0;
+  currentPage: number = 1;
 
   getAllProducts(): void {
     this.supscribeId = this._ApiDataService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response.data;
+        this.pageSize = response.metadata.limit;
+        this.currentPage = response.metadata.currentPage;
+        this.totalItems = response.results;
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
@@ -85,5 +91,17 @@ export class HomeProductsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.supscribeId.unsubscribe();
+  }
+
+  pageChanged(event: any): void {
+    console.log(event);
+    this.supscribeId = this._ApiDataService.getAllProducts(event).subscribe({
+      next: (response) => {
+        this.products = response.data;
+        this.pageSize = response.metadata.limit;
+        this.currentPage = response.metadata.currentPage;
+        this.totalItems = response.results;
+      },
+    });
   }
 }

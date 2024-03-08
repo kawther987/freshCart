@@ -112,6 +112,11 @@ a:hover {
   background-color: var(--main-color);
 }
 
+.ngx-pagination .current {
+  background: var(--main-color) !important;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 700px) {
   html {
     font-size: 12px;

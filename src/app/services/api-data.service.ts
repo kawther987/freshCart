@@ -9,8 +9,10 @@ export class ApiDataService {
   baseUrl = 'https://ecommerce.routemisr.com';
   constructor(private _HttpClient: HttpClient) {}
 
-  getAllProducts(): Observable<any> {
-    return this._HttpClient.get(`${this.baseUrl}/api/v1/products`);
+  getAllProducts(pageNum: number = 1): Observable<any> {
+    return this._HttpClient.get(
+      `${this.baseUrl}/api/v1/products?page=${pageNum}&limit=18`
+    );
   }
 
   getProductDetails(id: string): Observable<any> {
